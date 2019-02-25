@@ -1,0 +1,29 @@
+{
+  "name": "todo-grpc-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "generate": "tfapi -o ./src/generated ./src/protos/todo.proto",
+    "dev": "ts-node-dev --respawn src/index.ts",
+    "clean": "rm -f ./build",
+    "build": "tsc",
+    "start": "node build/index.js",
+    "docker:build": "docker build . -t todo-grpc-api:v1",
+    "docker:push": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types-first-api/cli": "0.0.13",
+    "ts-node-dev": "^1.0.0-pre.32",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "@types-first-api/grpc-server": "0.0.13",
+    "db-migrate": "^0.11.5",
+    "db-migrate-pg": "^0.5.0",
+    "pg-promise": "^8.5.6",
+    "rxjs": "^6.4.0"
+  }
+}
